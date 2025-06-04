@@ -114,7 +114,7 @@ Resources:
     Type: 'Custom::LambdaLayer'
     Properties:
       ServiceToken: !GetAtt LayerCreatorLambda.Arn
-      github_url: "https://github.com/build-on-aws/bedrock-agents-webscraper/raw/refs/heads/main/lambda-layer/layer-python-requests-googlesearch-beatifulsoup.zip"
+      github_url: "https://github.com/neuralfart/ai-websearch/blob/main/ai-websearch-requirements.zip"
       layer_name: "lambda-layer-python-requests-googlesearch-beautifulsoup"
       description: "Lambda layer for requests, googlesearch, and BeautifulSoup"
       filename: "layer-python-requests-googlesearch-beautifulsoup.zip"
