@@ -123,6 +123,7 @@ Resources:
             Effect: Allow
             Action:
               - bedrock:InvokeModelWithResponseStream
+              - bedrock:InvokeModel
             Resource:
               # Replace with the ARN of your Bedrock model. You can wildcard if you want all models:
               # - arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:model/*
