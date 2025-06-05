@@ -108,7 +108,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'lambda:InvokeFunction'
-                        Resource: '*'
+                Resource: '*'
               - Effect: Allow
                 Action:
                   - bedrock:InvokeModelWithResponseStream
