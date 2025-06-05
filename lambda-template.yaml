@@ -109,15 +109,25 @@ Resources:
                 Action:
                   - 'lambda:InvokeFunction'
                 Resource: '*'
-              - Effect: Allow
-                Action:
-                  - bedrock:InvokeModelWithResponseStream
-                Sid: AllowBedrockStreamFinalResponse
-                Resource:
-                  # Replace with the ARN of your Bedrock model. You can wildcard if you want all models:
-                  # - arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:model/*
-                  - arn:aws:bedrock:eu-north-1::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0
-                      
+
+  BedrockStreamingPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: AllowBedrockStreaming
+      Roles:
+        - !Ref AgentExecutionRole
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowBedrockStreamFinalResponse
+            Effect: Allow
+            Action:
+              - bedrock:InvokeModelWithResponseStream
+            Resource:
+              # Replace with the ARN of your Bedrock model. You can wildcard if you want all models:
+              # - arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:model/*
+              - arn:aws:bedrock:eu-north-1::foundation-model/anthropic.claude-3-7-sonnet-20250219-v1:0
+
   CustomLayerResource:
     Type: 'Custom::LambdaLayer'
     Properties:
