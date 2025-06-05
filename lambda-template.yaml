@@ -115,7 +115,7 @@ Resources:
     Properties:
       PolicyName: AllowBedrockStreaming
       Roles:
-        - !Ref AgentExecutionRole
+        - !Ref BedrockAgentExecutionRole
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
